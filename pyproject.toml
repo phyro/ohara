@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ohara"
+version = "0.1.0"
+description = "OpenTimestamps verification for Internet Archive collections"
+requires-python = ">=3.8"
+dependencies = [
+    "opentimestamps-client",
+]
+
+[project.scripts]
+ohara = "src.cli:main"
+
+[tool.setuptools]
+packages = ["src"]

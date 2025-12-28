@@ -1,26 +1,24 @@
 # Ohara
 
-**_NOTE: The author is not a cryptographer and the code was not reviewed so it could contain errors or bugs which could invalidate timestamp proofs. If you find any please let us know._**
+**_NOTE: The author is not a cryptographer and the code was not reviewed so it could contain errors or bugs which could invalidate timestamp proofs. If you find any please let us know. The 'data' folder is not meant to be touched, including the zip file._**
 
-_The .zip file in the metadata folder is not meant to be unzipped. The zip contains over a million small files which, if unzipped, would occupy significantly more than 500MB of space depending on the filesystem you use._
-
-Ohara is a timestamp collection of Internet Archive's video hashes using Bitcoin's blockchain via OpenTimestamps. This creates verifiable proof that specific videos existed before AI-generated deepfakes became prevalent, preserving a trusted record of historical video data.
+Ohara is a timestamp collection of video hashes using Bitcoin's blockchain via OpenTimestamps. This creates verifiable proof that specific videos existed before AI-generated deepfakes became prevalent, preserving a trusted record of historical video data.
 
 ![motivation](diagrams/timeline.svg)
 
 ## Motivation
 
-Creating a digital copy of real-world data is easy, but how do we know the copy is authentic? The problem lies in how cheap it is to `edit` that copy. Text is trivial to modify, we just open a file and type. Sound is quite a bit harder. Making someone say something different from 3:47-4:09 is not an easy task. But it turns out that AI has become an efficient and cheap `edit` function, turning what was a strict 1-1 mapping between real-world sounds and digital captures into a 0-many relationship. A single digital sound "capture" can now have zero real-world equivalents and infinitely many variants.
+Creating a digital copy of real-world signal is easy, we can read the writings on a stone from an ancient civilization and publish a copy on the web. But how can a reader know the copy is authentic? The problem lies in how cheap it is to `edit` that copy. Text is trivial to edit; we just open a file and type. We have to find a signal that's easy to copy, but harder to edit. Editing sound is quite a bit harder. Trying to edit a sound file such that from 3:47-4:09 Joe says something different is not an easy task. But it turns out that AI has become an efficient and cheap `edit` function, turning what was a strict 1-1 mapping between real-world sounds and digital captures into a 0-many relationship. A single digital sound "capture" can now have zero real-world equivalents and infinitely many variants in the digital world. Consequently, we lose the ability to tell which sound copy is real, if any at all.
 
-Video remains the last widespread signal that's still hard to edit convincingly. Given the fast advancement of AI, we're likely just years away from cheap, indistinguishable video forgeries flooding the internet. For the first time in history, civilization will struggle to trust the signal we see and hear. Note that the (raw) signal being a lie is different than the interpretation of the signal data being a lie. The later lies have a long history, it's only the former that's new to us. Evolution didn't prepare us for this. While some fakes will be obvious, countless others won't be.
+Video remains the last widespread signal that's still hard to edit convincingly at a massive scale. Given the fast advancement of AI, we're likely just years away from cheap, indistinguishable video forgeries flooding the internet. For the first time in history, civilization will have to question the signal we see and hear that supposedly describes real world events. Note that the (raw) signal being a lie is different than the interpretation of the signal data being a lie. The latter lies have a long history, it's only the former that's new to us. While some fakes will be obvious, countless others won't be.
 
-### A world of copies
+### A world of false copies
 
-The low cost of edit will not affect only new videos, but we'll also become unable to tell what videos from the past were the "correct" ones. Why would anyone flood the world with false copies of past data? To manipulate collective thinking, create knowledge asymmetry (only the forger knows what's original e.g. for AI training), or many other reasons we haven't yet imagined. 
+The low cost of editing will not affect only new videos, but we'll also become unable to tell what videos from the past were the "correct" ones. Why would anyone flood the world with false copies of past data? To manipulate collective thinking, create knowledge asymmetry (only the forger knows what's original e.g. for AI training), or many other reasons we haven't yet imagined. Cheap edits enable history rewrites through modified videos.
 
-Can we do something about it? Can the civilization of today point a finger at a video and say "This is the real one."? Perhaps a bit counterintuitively, the answer is that we can. We want to bring back a signal we can trust, but we don't want to rely on trusting any particular individual. What if we proved a video existed *before* the cost of editing dropped low enough to fake it? For this we need a trustworthy timeline. Bitcoin fits this criteria since creating an event in its timeline requires immense energy, but more importantly, *editing* an event requires the same energy because we need a new, equally hard block. This makes history rewrites too energy intensive to see them happen in practice.
+Can we do something about it? Can the civilization of today point a finger at a video from today and say "This is the real one."? Perhaps a bit counterintuitively, the answer is that we can. We want to bring back a signal we can trust, but we don't want to assume trust in any particular individual. What if we proved a video existed *before* the cost of editing dropped low enough to fake it? For this we need a trustworthy timeline. Bitcoin fits this criterion since creating an event in its timeline requires immense energy, but more importantly, *editing* an event requires the same energy because we need a new, equally hard block. This makes history rewrites too energy-intensive to see them happen in practice.
 
-We can use Bitcoin as a timestamping server to label original video data before we enter the era of cheap fakes. This preserves not just the videos themselves, but our ability to analyze them and reach correct, untampered conclusions. A simple example is AI analyzing the murder of a celebrity from different unmodified video sources and finding lies in reporting due to new observations that the human eye/mind missed.
+We can use Bitcoin as a timestamping server to label original video data before we enter the era of cheap fakes. Not only does this show us and future generations which past videos were untampered, but it also preserves our ability to analyze them and reach _correct_ (i.e. untampered) conclusions. A simple example is AI analyzing the murder of a celebrity from different unmodified video sources and finding lies in reporting due to new observations that the human eye/mind missed.
 
 ## Installation
 
@@ -41,7 +39,7 @@ You can also use [just](https://github.com/casey/just) to run common commands. R
 ### Usage
 
 
-We can view the timestamped hashes for a given identifier by running:
+We can view the timestamped hashes for a given Internet Archive identifier by running:
 
 ```
 ohara read <identifier>
@@ -177,7 +175,7 @@ Yes, it would. Any and all transformations of data can still be done at a later 
 
 Ohara is a reference to an island from One Piece. It was home to archaeologists dedicated to uncovering and preserving historical truth. Their library, the Tree of Knowledge, held centuries of accumulated knowledge. The island was destroyed by those who wanted history erased and rewritten.
 
-This project shares that spirit: preserving a verifiable record of what existed before video history can be manipulated. The difference is that our Tree of Knowledge is anchored in Bitcoin's blockchain which makes it a record that can't be burned.
+This project shares that spirit: preserving a verifiable record of what existed before video history can be manipulated. The difference is that our Tree of Knowledge is anchored in Bitcoin's blockchain, which makes it a record that can't be burned.
 
 
 ![motivation](diagrams/Tree_of_Knowledge.webp)

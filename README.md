@@ -67,6 +67,60 @@ ohara verify
 
 Note that verifying everything tells you nothing about the hashes that were actually timestamped.
 
+### Downloading and verifying files
+
+The `ohara get` command is a wrapper around Internet Archive downloads that also verifies the downloaded files against our timestamps:
+
+```
+ohara get <identifier>
+```
+
+Files are downloaded to `downloads/<identifier>/`. After downloading, the command shows which files have been timestamped, the Bitcoin block date of the timestamp, and flags any hash mismatches between the downloaded files and the timestamped hashes.
+
+Example usage:
+
+```
+> ohara get KA_Intro_to_Archaeology
+Loading archive...
+
+Downloading 23 files to downloads/KA_Intro_to_Archaeology/
+Downloaded 23/23 files
+
+============================================================
+TIMESTAMP VERIFICATION RESULTS
+Timestamp: Success! Bitcoin block 929262 attests existence as of 2025-12-24 CET
+============================================================
+
+TIMESTAMPED FILES (3):
+  ✓ KA_Intro_to_Archaeology.mp4
+  ✓ KA_Intro_to_Archaeology.ogv
+  ✓ KA_Intro_to_Archaeology.pegssc.mpeg
+
+NOT IN TIMESTAMP (20):
+  - KA_Intro_to_Archaeology.asr.js
+  - KA_Intro_to_Archaeology.asr.srt
+  - KA_Intro_to_Archaeology.gif
+  - KA_Intro_to_Archaeology.mp3
+  - KA_Intro_to_Archaeology.png
+  - KA_Intro_to_Archaeology.thumbs/KA_Intro_to_Archaeology_000001.jpg
+  - KA_Intro_to_Archaeology.thumbs/KA_Intro_to_Archaeology_000045.jpg
+  - KA_Intro_to_Archaeology.thumbs/KA_Intro_to_Archaeology_000075.jpg
+  - KA_Intro_to_Archaeology.thumbs/KA_Intro_to_Archaeology_000105.jpg
+  - KA_Intro_to_Archaeology.thumbs/KA_Intro_to_Archaeology_000135.jpg
+  - KA_Intro_to_Archaeology.thumbs/KA_Intro_to_Archaeology_000165.jpg
+  - KA_Intro_to_Archaeology.thumbs/KA_Intro_to_Archaeology_000195.jpg
+  - KA_Intro_to_Archaeology.thumbs/KA_Intro_to_Archaeology_000225.jpg
+  - KA_Intro_to_Archaeology.thumbs/KA_Intro_to_Archaeology_000255.jpg
+  - KA_Intro_to_Archaeology.thumbs/KA_Intro_to_Archaeology_000285.jpg
+  - KA_Intro_to_Archaeology_archive.torrent
+  - KA_Intro_to_Archaeology_files.xml
+  - KA_Intro_to_Archaeology_meta.sqlite
+  - KA_Intro_to_Archaeology_meta.xml
+  - __ia_thumb.jpg
+
+Summary: 3 timestamped, 20 not in timestamp, 0 mismatched
+```
+
 ### Exporting .ots proofs
 
 We can export a standalone OpenTimestamps proof for any identifier. This creates a self-contained `.ots` file that anyone can verify independently without needing the full collection:

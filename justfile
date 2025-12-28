@@ -24,6 +24,10 @@ verify-verbose:
 gen-ots +identifiers:
     ohara gen-ots {{identifiers}}
 
+# Download identifier files from Internet Archive and verify against timestamps
+get identifier:
+    ohara get {{identifier}}
+
 # Install package
 install:
     pip install .

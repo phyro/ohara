@@ -1,5 +1,3 @@
-"""OpenTimestamps proof creation and serialization utilities."""
-
 import os
 
 from opentimestamps.core.timestamp import Timestamp, DetachedTimestampFile

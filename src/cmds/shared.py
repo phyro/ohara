@@ -100,9 +100,6 @@ def verify_collection(itemlist, z):
     # Assert that the computed root hash is the same as the file content (content is in bytes)
     assert content.hex() == root_hash
     assert content == tree.root
-    # TODO: remove later
-    content_old = read_file(os.path.join(OUTPUTS_DIR, root_hash + ".hash"))
-    assert content_old.decode() == content.hex()
 
     # Verify the .ots for this tree root
     root_file_path = os.path.join(OUTPUTS_DIR, root_hash + ".digest.ots")
